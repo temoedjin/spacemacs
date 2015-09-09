@@ -31,6 +31,7 @@
     org-repo-todo
     persp-mode
     toc-org
+    ox-reveal
     ))
 
 (when (configuration-layer/layer-usedp 'auto-completion)
@@ -385,6 +386,9 @@ Will work on both org-mode and any mode that accepts plain html."
       (setq toc-org-max-depth 10)
       (add-hook 'org-mode-hook 'toc-org-enable))))
 
+(defun org/init-ox-reveal ()
+  (use-package ox-reveal
+    :if org-enable-reveal-js))
 (defun org/init-htmlize ()
  (use-package htmlize
     :defer t))
