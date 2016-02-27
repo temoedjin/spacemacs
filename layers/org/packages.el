@@ -33,6 +33,7 @@
     (ox-gfm :location local)
     persp-mode
     toc-org
+    ox-reveal
     ))
 
 (when (configuration-layer/layer-usedp 'auto-completion)
@@ -541,6 +542,9 @@ a Markdown buffer and use this command to convert it.
       (setq toc-org-max-depth 10)
       (add-hook 'org-mode-hook 'toc-org-enable))))
 
+(defun org/init-ox-reveal ()
+  (use-package ox-reveal
+    :if org-enable-reveal-js))
 (defun org/init-htmlize ()
  (use-package htmlize
     :defer t))
